@@ -47,6 +47,51 @@ A firewall is a network security device or software application designed to moni
 
 - Facilitating Monitoring and Logging: Firewalls log traffic data, which is essential for monitoring suspicious activity, conducting audits, and performing forensic analysis after an incident.
 
+### Creating Firewall Rules on Windows
+
+- Step 1: Access Windows Firewall
+  - Navigate to Control Panel → System and Security → Windows Defender Firewall → Advanced Settings.
+  - Explain the Inbound Rules and Outbound Rules tabs.
+
+- Step 2: Create an Inbound Rule
+  -  Example: Allow SSH traffic on port 22.
+  -  Steps:
+     1. Click Inbound Rules → New Rule.
+     2. Select Port and click Next.
+     3. Choose TCP or UDP, enter 22, and click Next.
+     4. Allow the connection, and click Next.
+     5. Specify profiles (Domain, Private, Public) and click Next.
+     6. Name the rule (e.g., “Allow SSH”) and click Finish.
+ 
+- Step 3: Test the rule
+  - Open a terminal or SSH client and attempt to connect.
+  - If blocked, adjust the rule or check the firewall logs for debugging.
+ 
+- Step 4: Modify or delete a Rule
+  - Demonstrate how to disable or remove a rule if needed.
+
+### Creating Firewall Rules on Linux
+
+- Step 1: Introduce ufw (Uncomplicated Firewall)
+  - Install (if needed): sudo apt install ufw
+  - Enable the firewall: sudo ufw enable
+ 
+- Step 2: Allow Traffic on Port 80 (Web Server)
+   - Command: sudo ufw allow 80/tcp.
+   - Explanation: This allows HTTP traffic to your system.
+
+- Step 3: Block Traffic from a Specific IP Address
+  - Command: sudo ufw deny from 192.168.1.100.
+  - Explanation: This blocks traffic from a specific malicious IP
+ 
+ - Step 4: Check Active Rules
+   - Command: sudo ufw status verbose
+   - Verify that the rules are correctly applied.
+
+ - Optional: Use iptables for Advanced Configuration
+   - Example:
+      - sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+
 
 <p align="center">
 Launch the utility: <br/>
